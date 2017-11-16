@@ -1,0 +1,11 @@
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe.config
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\bin\Debug\Hoard.pdb
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csprojResolveAssemblyReference.cache
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Assets.resources
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Form1.resources
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Properties.Resources.resources
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Tickets.resources
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csproj.GenerateResource.Cache
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
+C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
