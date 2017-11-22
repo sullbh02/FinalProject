@@ -9,3 +9,16 @@ C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Tickets.res
 C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csproj.GenerateResource.Cache
 C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
 C:\Users\octavius\Documents\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe.config
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\bin\Debug\Hoard.mdf
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\bin\Debug\Hoard_log.ldf
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\bin\Debug\Hoard.pdb
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csprojResolveAssemblyReference.cache
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Assets.resources
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Properties.Resources.resources
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Tickets.resources
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csproj.GenerateResource.Cache
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
+C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.MainForm.resources
