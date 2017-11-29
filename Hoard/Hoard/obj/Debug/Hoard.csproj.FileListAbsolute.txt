@@ -22,3 +22,4 @@ C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csp
 C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
 C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
 C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.MainForm.resources
+E:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe.config

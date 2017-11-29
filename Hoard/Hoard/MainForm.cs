@@ -45,11 +45,13 @@ namespace Hoard
 
         private void btnNewAsset_Click(object sender, EventArgs e)
         {
+            // when user clicks create asset we take them to the Assets form 
 
         }
 
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
+            // when user clicks create a ticket we take them to the Tickets form
 
         }
 
