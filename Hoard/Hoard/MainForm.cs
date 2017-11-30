@@ -52,23 +52,35 @@ namespace Hoard
         private void btnNewTicket_Click(object sender, EventArgs e)
         {
             // when user clicks create a ticket we take them to the Tickets form
-
+            Create c = new Create();
+                c.Show();
         }
 
         private void tsQuit_Click(object sender, EventArgs e)
         {
             // close program
-            Application.Exit();
+            Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'ticketsDataSet.Tickets' table. You can move, or remove it, as needed.
+            this.ticketsTableAdapter.Fill(this.ticketsDataSet.Tickets);
+
+            // fix when application is complete
+            /*
             //on form load fill the form with the login panel
             panelLogin.Dock = DockStyle.Fill;
 
             //Hide the main panel until the user has succesfully logged in
             panelMain.Hide();
             this.AcceptButton = btnLogin;
+            */
+
+            //remove once finshied 
+            panelMain.Dock = DockStyle.Fill;
+            panelLogin.Hide();
+            this.AcceptButton = btnNewTicket;
 
         }
 
@@ -142,6 +154,24 @@ namespace Hoard
 
 
 
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.ticketsTableAdapter.FillBy(this.ticketsDataSet.Tickets);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

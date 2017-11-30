@@ -23,3 +23,17 @@ C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
 C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
 C:\Users\bsullivan\Documents\GitHub\FinalProject\Hoard\Hoard\obj\Debug\Hoard.MainForm.resources
 E:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe.config
+D:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe.config
+D:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.exe
+D:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.pdb
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csprojResolveAssemblyReference.cache
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Assets.resources
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Create.resources
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.MainForm.resources
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Properties.Resources.resources
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.Tickets.resources
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.csproj.GenerateResource.Cache
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
+D:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
+D:\FinalProject\Hoard\Hoard\bin\Debug\Hoard.mdf
+D:\FinalProject\Hoard\Hoard\bin\Debug\Hoard_log.ldf

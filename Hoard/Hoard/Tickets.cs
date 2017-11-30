@@ -16,5 +16,11 @@ namespace Hoard
         {
             InitializeComponent();
         }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Create f = new Hoard.Create();
+            f.Show();
+        }
     }
 }
