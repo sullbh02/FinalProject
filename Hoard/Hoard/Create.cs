@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 
 namespace Hoard
 {
@@ -66,6 +68,51 @@ namespace Hoard
             }
         }
 
+
+        // this function will send an e-mail to the Technican if a ticket is created. 
+        public string sendit(string ReciverMail)
+        {
+            MailMessage msg = new MailMessage();
+
+            msg.From = new MailAddress("githubprogramtester@gmail.com ");
+            msg.To.Add(ReciverMail);
+            msg.Subject = "A ticket has been created @ " + DateTime.Now.ToString();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Name: " + txtUser.Text);
+            sb.AppendLine("Description: " + txtDescription.Text);
+            msg.Body = sb.ToString();
+            SmtpClient client = new SmtpClient();
+            client.UseDefaultCredentials = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.Credentials = new NetworkCredential("githubprogramtester@gmail.com ", "mattPARKER292");
+            client.Timeout = 20000;
+
+            txtUser.Clear();
+            txtTicketLocation.Clear();
+            lstType.ClearSelected();
+            txtDescription.Clear();
+
+
+            try
+            {
+                client.Send(msg);
+                return "Mail has been successfully sent!";
+              
+
+            }
+            catch (Exception ex)
+            {
+                return "Fail Has error" + ex.Message;
+            }
+            finally
+            {
+                msg.Dispose();
+            }
+        }
+
         private void btnCreate_Click(object sender, EventArgs e)
         {
             // once the create button is clicked create a connection to the SQL database 
@@ -81,7 +128,7 @@ namespace Hoard
                 con.Open();
                 try
                 {
-  
+
                     using (SqlCommand cmd = new SqlCommand(sqlTicket, con))
                     {
                         cmd.Parameters.AddWithValue("@username", txtUser.Text);
@@ -90,19 +137,22 @@ namespace Hoard
                         cmd.Parameters.AddWithValue("@description", txtDescription.Text);
                         cmd.ExecuteNonQuery();
                         lblStatus.Text = "Ticket Created!";
-                        txtUser.Clear();
-                        txtTicketLocation.Clear();
-                        lstType.ClearSelected();
-                        txtDescription.Clear();
+                        
+                        // this is our techs e-mail (githubprogramtester@gmail.com)  
+                        // if a ticket is succesfully created send an e-mail.
 
+                        sendit("githubprogramtester@gmail.com ");
                     }
                 }
                 catch
                 {
                     lblStatus.Text = "Ticket could not be created";
                 }
-               
-                
+
+
+             
+
+
             }
             else if (chkAsset.Checked == true)
             {
