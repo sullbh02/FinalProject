@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,11 @@ namespace Hoard
     {
         public MainForm()
         {
-            Load += new EventHandler(Form1_Load);
             InitializeComponent();
+            Load += new EventHandler(Form1_Load);
+
+            panelMain.Location = panelLogin.Location;
+           
         }
 
         // add login table adapter
@@ -46,6 +50,8 @@ namespace Hoard
         private void btnNewAsset_Click(object sender, EventArgs e)
         {
             // when user clicks create asset we take them to the Assets form 
+            Create c = new Create();
+            c.Show();
 
         }
 
@@ -67,92 +73,46 @@ namespace Hoard
             // TODO: This line of code loads data into the 'ticketsDataSet.Tickets' table. You can move, or remove it, as needed.
             this.ticketsTableAdapter.Fill(this.ticketsDataSet.Tickets);
 
-            // fix when application is complete
-            /*
-            //on form load fill the form with the login panel
+            hidePanels();
+            panelLogin.Visible = true;
             panelLogin.Dock = DockStyle.Fill;
+            menuStrip1.Hide();
 
-            //Hide the main panel until the user has succesfully logged in
-            panelMain.Hide();
-            this.AcceptButton = btnLogin;
-            */
+        }
 
-            //remove once finshied 
-            panelMain.Dock = DockStyle.Fill;
-            panelLogin.Hide();
-            this.AcceptButton = btnNewTicket;
+        public void hidePanels()
+        {
+            panelLogin.Visible = false;
+            panelMain.Visible = false;
 
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //vars for the login panel
-            string username = "";
-            string password = "";
-            bool validUser = false;
-            bool validPass = false;
-           
+            SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=" + Application.StartupPath + "\\Hoard.mdf;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE username = @username AND password = @password", con);
+            cmd.Parameters.AddWithValue("@username", txtUsername.Text);
+            cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+            
 
-            // check if the user entered a valid username
-
-            if (txtUsername.Text.Length > 0)
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
             {
-             
-                validUser = true;
+                panelLogin.Hide();
+                panelMain.Show();
+                panelMain.Dock = DockStyle.Fill;
+                menuStrip1.Show();
+                lblStatus.Text = "Welcome " + txtUsername.Text;
             }
+
             else
             {
-                lblStatus.Text = "Please enter a valid username";
+                lblStatus.Text = "Please enter valid credentials";
+                txtUsername.Clear();
+                txtPassword.Clear();
+
             }
-
-            // check for a valid password
-
-            if(txtPassword.Text.Length > 0)
-            {
-                         validPass = true;
-            }
-            else
-            {
-                lblStatus.Text = "Pleas enter a valid password";
-            }
-
-            //if both the username and password are valid continue
-            if(validUser == true && validPass == true)
-            {
-                txtPassword.Text = password;
-                txtUsername.Text = username;
-                try
-                {
-                    // check if the username and password combo is in our database
-                    if(loginAdapter.Search(loginAdapter.GetData(), username, password) > 0)
-                    {
-                        // hide the login panel and display the main panel
-                        panelLogin.Hide();
-                        panelMain.Show();
-                        panelMain.Dock = DockStyle.Fill;
-                        this.AcceptButton = null;
-                        txtPassword.Clear();
-                        txtUsername.Clear();
-                    }
-                    // if the combo is invalid search for username in database
-                    else if(loginAdapter.SearchUsername(loginAdapter.GetData(), username) > 0)
-                    {
-                        // if username is found inform user of an invalid password
-                        lblStatus.Text = "Invalid password";
-                    }
-                    // if username is not found inform user of invalid crendtials
-                    else
-                    {
-                        lblStatus.Text = "Invalid credentials";
-                    }
-                }
-                catch
-                {
-                    lblStatus.Text = "Error logging in";
-                }
-            }
-
-
 
         }
 
@@ -172,6 +132,25 @@ namespace Hoard
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        //toolstrip functions
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ticketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Tickets t = new Tickets();
+            t.Show();
+        }
+
+        private void assetsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Assets a = new Assets();
+            a.Show();
         }
     }
 }

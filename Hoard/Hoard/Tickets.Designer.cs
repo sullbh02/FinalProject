@@ -28,29 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.dgvTickets = new System.Windows.Forms.DataGridView();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ticketsDataSet = new Hoard.TicketsDataSet();
+            this.ticketsTableAdapter = new Hoard.TicketsDataSetTableAdapters.TicketsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvTickets
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 44);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(571, 266);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvTickets.AutoGenerateColumns = false;
+            this.dgvTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.locationDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn});
+            this.dgvTickets.DataSource = this.ticketsBindingSource;
+            this.dgvTickets.Location = new System.Drawing.Point(12, 44);
+            this.dgvTickets.Name = "dgvTickets";
+            this.dgvTickets.Size = new System.Drawing.Size(571, 266);
+            this.dgvTickets.TabIndex = 0;
             // 
             // btnNew
             // 
@@ -64,12 +79,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(86, 395);
+            this.btnSearch.Location = new System.Drawing.Point(113, 345);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(101, 23);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnDelete
             // 
@@ -79,51 +95,20 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete Ticket";
             this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(71, 316);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(129, 20);
-            this.txtID.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 319);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Ticket ID:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 346);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Name:";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 372);
+            this.label3.Location = new System.Drawing.Point(41, 322);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Location:";
             // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(71, 343);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(129, 20);
-            this.txtName.TabIndex = 8;
-            // 
             // txtLocation
             // 
-            this.txtLocation.Location = new System.Drawing.Point(71, 369);
+            this.txtLocation.Location = new System.Drawing.Point(98, 319);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(129, 20);
             this.txtLocation.TabIndex = 9;
@@ -143,6 +128,51 @@
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            this.usernameDataGridViewTextBoxColumn.DataPropertyName = "Username";
+            this.usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            this.usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            // 
+            // locationDataGridViewTextBoxColumn
+            // 
+            this.locationDataGridViewTextBoxColumn.DataPropertyName = "Location";
+            this.locationDataGridViewTextBoxColumn.HeaderText = "Location";
+            this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // ticketsBindingSource
+            // 
+            this.ticketsBindingSource.DataMember = "Tickets";
+            this.ticketsBindingSource.DataSource = this.ticketsDataSet;
+            // 
+            // ticketsDataSet
+            // 
+            this.ticketsDataSet.DataSetName = "TicketsDataSet";
+            this.ticketsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketsTableAdapter
+            // 
+            this.ticketsTableAdapter.ClearBeforeFill = true;
+            // 
             // Tickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,20 +180,19 @@
             this.ClientSize = new System.Drawing.Size(595, 465);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtLocation);
-            this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnNew);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTickets);
             this.Name = "Tickets";
             this.Text = "Tickets";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Tickets_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTickets)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,17 +200,21 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvTickets;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+        private TicketsDataSet ticketsDataSet;
+        private System.Windows.Forms.BindingSource ticketsBindingSource;
+        private TicketsDataSetTableAdapters.TicketsTableAdapter ticketsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usernameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn locationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
     }
 }

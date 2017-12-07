@@ -43,8 +43,3 @@ E:\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
 \\tsclient\FinalProject\Hoard\Hoard\obj\Debug\Hoard.exe
 \\tsclient\FinalProject\Hoard\Hoard\obj\Debug\Hoard.pdb
 D:\FinalProject\Hoard\Hoard\bin\Debug\BouncyCastle.Crypto.dll
-D:\FinalProject\Hoard\Hoard\bin\Debug\MailKit.dll
-D:\FinalProject\Hoard\Hoard\bin\Debug\MimeKit.dll
-D:\FinalProject\Hoard\Hoard\bin\Debug\MailKit.xml
-D:\FinalProject\Hoard\Hoard\bin\Debug\MimeKit.xml
-D:\FinalProject\Hoard\Hoard\bin\Debug\EASendMail45.dll

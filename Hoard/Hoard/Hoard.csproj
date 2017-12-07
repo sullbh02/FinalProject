@@ -52,18 +52,6 @@
       <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EASendMail45, Version=7.3.1.8, Culture=neutral, PublicKeyToken=88adb80ecd66540b, processorArchitecture=MSIL">
-      <HintPath>..\packages\EASendMail.7.3.1.8\lib\net45\EASendMail45.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MailKit, Version=1.22.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
-      <HintPath>..\packages\MailKit.1.22.0\lib\net451\MailKit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MimeKit, Version=1.22.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
-      <HintPath>..\packages\MimeKit.1.22.0\lib\net451\MimeKit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
@@ -94,6 +82,9 @@
     </Compile>
     <Compile Include="Create.Designer.cs">
       <DependentUpon>Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginDataSet.cs">
+      <DependentUpon>LoginDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +127,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Tickets.resx">
       <DependentUpon>Tickets.cs</DependentUpon>
@@ -207,6 +199,9 @@
       <DependentUpon>Hoard.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\clouds.jpg" />
+    <None Include="Resources\Member-Login-Button-PNG-Clipart.png" />
+    <None Include="Resources\login.jpg" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -90,11 +90,11 @@ namespace Hoard
             client.Credentials = new NetworkCredential("githubprogramtester@gmail.com ", "mattPARKER292");
             client.Timeout = 20000;
 
+            //after getting information from textboxes clear all selections on form
             txtUser.Clear();
             txtTicketLocation.Clear();
             lstType.ClearSelected();
             txtDescription.Clear();
-
 
             try
             {
@@ -175,7 +175,8 @@ namespace Hoard
                         txtAssetLocation.Clear();
                         lstAsset.ClearSelected();
                         txtSN.Clear();
-                      
+                        Assets a = new Assets();
+                        a.Refresh();
 
                     }
                 }
@@ -186,6 +187,7 @@ namespace Hoard
 
             }
            con.Close();
+
 
         }
       
